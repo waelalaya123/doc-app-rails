@@ -19,7 +19,7 @@ module RubyReact
           )
       end
     end
-    config.hosts << "5af80690.ngrok.io"
+    config.hosts << "5c9a9241f2a4.ngrok.io"
     config.load_defaults 6.0
 
     # Settings in config/environments/* take precedence over those specified here.
