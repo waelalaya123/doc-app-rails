@@ -2,34 +2,35 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host:               localhost
+  host:               ec2-34-198-243-120.compute-1.amazonaws.com
   schema_search_path: public
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: postgres
-  password: root
+  username: fanuayjjktqylo
+  password: 1ad090233206d9b0bd488900460d4ecb98ce28de5503d838e91240aa61a92ab0
 
 development:
   <<: *default
-  database: ruby_react_production
+  database: dcpan379qo3kbk
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: ruby_react_production
+  database: dcpan379qo3kbk
 
 production:
   adapter: postgresql
   encoding: unicode
-  host:     localhost
+  host:     ec2-34-198-243-120.compute-1.amazonaws.com
   schema_search_path: public
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: postgres
-  password: root
-  database: ruby_react_production
+  username: fanuayjjktqylo
+  password: 1ad090233206d9b0bd488900460d4ecb98ce28de5503d838e91240aa61a92ab0
+  database: dcpan379qo3kbk
+
 
