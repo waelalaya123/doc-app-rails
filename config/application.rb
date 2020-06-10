@@ -9,11 +9,11 @@ Bundler.require(*Rails.groups)
 module RubyReact
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.hosts << "f2a081cad3a2.ngrok.io"
+    config.hosts << "infinite-cliffs-78951.herokuapp.com"
     config.load_defaults 6.0
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3000'
+        origins '*'
         resource '*', headers: :any, methods: [:get, :post, :options, :patch, :put, :delete]
       end
     end
