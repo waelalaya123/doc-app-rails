@@ -30,8 +30,15 @@ class DoctorsController < ApplicationController
 
   def upload_certificate
     @doctor = Doctor.find(params[:id])
-
-    render json: { status: 500, errors: @doctor.errors.full_messages } unless @doctor.update(doctor_cert_params)
+    if @doctor.update(doctor_cert_params)
+      @user = @doctor.user
+      respond_to do |format|
+        format.json
+        render "sessions/is_logged_in_"
+      end
+    else
+      render json: { status: 500, errors: @doctor.errors.full_messages }
+    end
   end
 
   def total_payments

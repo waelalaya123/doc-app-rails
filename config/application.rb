@@ -9,13 +9,14 @@ Bundler.require(*Rails.groups)
 module RubyReact
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.action_dispatch.default_headers = {
-      'Access-Control-Allow-Origin' => '*',
-      'Access-Control-Request-Method' => 'GET, PATCH, PUT, POST, OPTIONS, DELETE',
-      'Access-Control-Allow-Headers:' => 'Origin, X-Requested-With, Content-Type, Accept'
-  }
-    config.hosts << "5c9a9241f2a4.ngrok.io"
+    config.hosts << "f2a081cad3a2.ngrok.io"
     config.load_defaults 6.0
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:3000'
+        resource '*', headers: :any, methods: [:get, :post, :options, :patch, :put, :delete]
+      end
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

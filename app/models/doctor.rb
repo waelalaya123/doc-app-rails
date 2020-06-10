@@ -7,7 +7,7 @@ class Doctor < ApplicationRecord
   has_many :payments, through: :bookings
   has_many :treatments
 
-  belongs_to :true, optional: true
+  belongs_to :user, optional: true
 
   scope :with_treatment_like, -> (treatment) { joins(:treatments).where('treatments.name LIKE ?', "#{treatment}%") }
 

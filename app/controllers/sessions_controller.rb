@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
+
   def create
     @user = User.unscoped.active.find_by(username: session_params[:username])
-puts"sssssssssssssssssssssssss", @user.inspect
-     
+
     if @user && @user.authenticate(session_params[:password])
       login!
     else
@@ -13,6 +13,10 @@ puts"sssssssssssssssssssssssss", @user.inspect
   def is_logged_in?
     if logged_in? && current_user
       @user = current_user
+      respond_to do |format|
+        format.json
+        render "sessions/is_logged_in_"
+      end
     else
       render json: { logged_in: false, message: 'no such user' }
     end
